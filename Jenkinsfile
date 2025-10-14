@@ -9,14 +9,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'sudo ./jenkins/test.sh'
+                sh './jenkins/test.sh'
             }
         }
         stage('Deliver') { 
             steps {
-                sh 'sudo ./jenkins/deliver.sh' 
+                sh './jenkins/deliver.sh' 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh 'sudo ./jenkins/kill.sh' 
+                sh './jenkins/kill.sh' 
             }
         }
     }
